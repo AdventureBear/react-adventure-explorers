@@ -14,13 +14,40 @@ const scenes = [
     {
         id: "home",
         description: "The farmer heads home to clean up.",
-        result: "He takes a bath.",
-        choices: [{ text: "Reset", nextScene: "start" }],
+        result: "He takes a long bath and reflects on the day.",
+        choices: [
+            { text: "Get Back to Work", nextScene: "work" },
+            { text: "Reset", nextScene: "start" },
+        ],
     },
     {
         id: "barn",
         description: "The farmer decides to head to the barn.",
-        result: "He rolls in the mud.",
+        result: "He rolls in the mud but finds it strangely relaxing.",
+        choices: [
+            { text: "Check on the Animals", nextScene: "animals" },
+            { text: "Reset", nextScene: "start" },
+        ],
+    },
+    {
+        id: "work",
+        description: "The farmer gets back to work in the field.",
+        result: "He finishes plowing the field just in time for sunset.",
+        choices: [{ text: "Reset", nextScene: "start" }],
+    },
+    {
+        id: "animals",
+        description: "The farmer checks on the animals in the barn.",
+        result: "The animals seem content, but the pigs laugh at him.",
+        choices: [
+            { text: "Feed the Animals", nextScene: "feed" },
+            { text: "Reset", nextScene: "start" },
+        ],
+    },
+    {
+        id: "feed",
+        description: "The farmer decides to feed the animals.",
+        result: "The animals are grateful, and the farmer feels accomplished.",
         choices: [{ text: "Reset", nextScene: "start" }],
     },
 ];
@@ -29,7 +56,6 @@ export default function Home() {
     const [currentSceneId, setCurrentSceneId] = useState("start");
     const [showResult, setShowResult] = useState(false);
 
-    // Get the current scene object based on the ID
     const currentScene = scenes.find((scene) => scene.id === currentSceneId);
 
     return (
