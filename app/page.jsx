@@ -3,11 +3,14 @@
 import { useState } from "react";
 
 export default function Home() {
-    const [state, setState] = useState({
+    const [state, setState] = useState(
+        {
         currentChoice: null, // "home" or "barn"
         showResult: false,
         result: "",
-    });
+    }
+
+    );
 
     const handleChoice = (choice) => {
         if (choice === "home") {
