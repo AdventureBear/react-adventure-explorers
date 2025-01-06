@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import Confetti from "react-confetti";
+// import Confetti from "react-confetti";
 
 const scenes = [
     {
@@ -66,7 +66,12 @@ const scenes = [
 
 export default function Home() {
     const [currentSceneId, setCurrentSceneId] = useState("start");
-    const [gameState, setGameState] = useState({ fedAnimals: false, choresDone: false });
+    const [gameState, setGameState] = useState(
+        {
+            fedAnimals: false,
+            choresDone: false
+        }
+    );
 
     const currentScene = scenes.find((scene) => scene.id === currentSceneId);
 
@@ -109,12 +114,17 @@ export default function Home() {
 
             {/* Main Content */}
             <div className="w-3/4 flex flex-col items-center justify-center px-4">
-                {isWin && <Confetti width={window.innerWidth} height={window.innerHeight} />}
+                {/*{isWin && <Confetti width={window.innerWidth} height={window.innerHeight} />}*/}
                 <div className="bg-white rounded-lg shadow-lg p-6 max-w-md text-center">
                     <h1 className="text-2xl font-bold text-gray-800 mb-4">Choose Your Own Adventure</h1>
-                    {currentScene.id === "start" && (
+
+                    {currentScene.objective && (
                         <p className="text-gray-500 mb-4">{currentScene.objective}</p>
                     )}
+
+                    {/*{currentScene.id === "start" && (*/}
+                    {/*    <p className="text-gray-500 mb-4">{currentScene.objective}</p>*/}
+                    {/*)}*/}
                     <p className="text-gray-600 mb-6">{currentScene.description}</p>
 
                     {currentScene.result && (
