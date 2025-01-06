@@ -85,6 +85,7 @@ export default function Home() {
                     )}
                 </div>
             </div>
+
             {state.currentState !== "IDLE" && (
                 <button
                     onClick={() => dispatch({ type: "RESET" })}
